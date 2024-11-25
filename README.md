@@ -87,33 +87,7 @@ npm start
   ```
     http://localhost:5173/
   ```
-  - you will see this web page
-![6](https://github.com/user-attachments/assets/8b559752-5e5c-47f7-8db1-441f6f35747b)
-
-- Database Setup
- - Make the following table in your mysql workbench
-   ![7](https://github.com/user-attachments/assets/d826567d-9b3c-4f7c-b33f-370ea2e5692b)
-
- - Now in the server folder open index.js and update the following part to conncect to your Mysql database
-   ```
-   const db = mysql.createConnection({
-    host : 'yourConnectionName',
-    user : 'yourUserName',
-    password : "yourWorkbenchPassword",
-    database : 'yourSchemaName'
-   })
-   ```
-   example
-   ```
-   const db = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : "Udit@2002",
-    database : 'sys'
-   })
-   ```
-Now the local installation is complet u can visit the localhost:5173 and use the todoList app
- 
+- you will see this web page
 
 ## How the webpage looks
 https://github.com/user-attachments/assets/946d00cd-b3a6-426d-847b-90de264021ba

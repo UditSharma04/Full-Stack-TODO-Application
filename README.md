@@ -83,31 +83,49 @@ cd Server
 npm start
 ```
 
-2. Start the Client (in a new terminal)
-```bash
-cd Client
-npm run dev
-```
+- Now go to your browser and search this
+  ```
+    http://localhost:5173/
+  ```
+  - you will see this web page
+![6](https://github.com/user-attachments/assets/8b559752-5e5c-47f7-8db1-441f6f35747b)
 
-3. Access the application at `http://localhost:5173`
+- Database Setup
+ - Make the following table in your mysql workbench
+   ![7](https://github.com/user-attachments/assets/d826567d-9b3c-4f7c-b33f-370ea2e5692b)
 
-## UI Design
+ - Now in the server folder open index.js and update the following part to conncect to your Mysql database
+   ```
+   const db = mysql.createConnection({
+    host : 'yourConnectionName',
+    user : 'yourUserName',
+    password : "yourWorkbenchPassword",
+    database : 'yourSchemaName'
+   })
+   ```
+   example
+   ```
+   const db = mysql.createConnection({
+    host : 'localhost',
+    user : 'root',
+    password : "Udit@2002",
+    database : 'sys'
+   })
+   ```
+Now the local installation is complet u can visit the localhost:5173 and use the todoList app
+ 
 
-The application's UI was designed using Figma. You can view the design at:
-[Figma Design](https://www.figma.com/community/file/1145991068621514311)
+## How the webpage looks
+https://github.com/user-attachments/assets/946d00cd-b3a6-426d-847b-90de264021ba
 
-## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Author
 
-- [Udit Sharma](https://www.github.com/uditsharma04)
 
-## Connect with the Author
 
-[![LinkedIn](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hellouditt/)
-[![Twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/hellouditt)
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hellouditt/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/hellouditt)
 
 ## License
 

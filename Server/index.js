@@ -25,22 +25,28 @@ db.connect((err) => {
 })
 
 app.post('/new-task', (req, res) => {
-    console.log(req.body);
-    const q  = 'insert into todos (task, createdAt, status) values (?, ?, ?)';
-    db.query(q, [req.body.task, new Date(), 'active'], (err, result) => {
+    const q = 'INSERT INTO todos (task, createdAt, status, priority, dueDate, category, notes) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    db.query(q, [
+        req.body.task, 
+        new Date(), 
+        'active',
+        req.body.priority || 'medium',
+        req.body.dueDate || null,
+        req.body.category || 'General',
+        req.body.notes || ''
+    ], (err, result) => {
         if(err){
             console.log('failed to store');
+            console.log(err);
         } 
         else{
             console.log('todo saved');
-            const updatedTasks = 'select * from todos'
+            const updatedTasks = 'SELECT * FROM todos'
             db.query(updatedTasks, (error, newList) => {
                 res.send(newList)
             })
-            
         }
     })
-    
 })
 
 app.get('/read-tasks', (req, res) => {
@@ -60,28 +66,29 @@ app.get('/read-tasks', (req, res) => {
 })
 
 app.post('/update-task', (req, res) => {
-    console.log(req.body);
-    const q = 'update todos set task = ? where id = ?'
-    db.query(q, [req.body.task, req.body.updateId], (err, result) => {
+    const q = 'UPDATE todos SET task = ?, priority = ?, dueDate = ?, category = ?, notes = ? WHERE id = ?'
+    db.query(q, [
+        req.body.task, 
+        req.body.priority,
+        req.body.dueDate,
+        req.body.category,
+        req.body.notes,
+        req.body.updateId
+    ], (err, result) => {
         if(err) {
             console.log('failed to update');
-            
         }
         else{
-            console.log('updated');
-            db.query('select* from todos', (e, r) => {
+            db.query('SELECT * FROM todos', (e, r) => {
                 if(e){
                     console.log(e);
-                    
                 }
                 else{
                     res.send(r)
                 }
             })
-            
         }
     })
-    
 })
 
 app.post('/delete-task', (req, res) => {
@@ -112,6 +119,22 @@ app.post('/complete-task', (req, res) => {
             })
         }
 
+    })
+})
+
+app.post('/revert-task', (req, res) => {
+    const q = 'UPDATE todos SET status = "active" WHERE id = ?';
+    db.query(q, [req.body.id], (err, result) => {
+        if(err){
+            console.log("failed to revert task");
+        }
+        else{
+            console.log("task reverted successfully");
+            const updatedTasks = 'SELECT * FROM todos'
+            db.query(updatedTasks, (error, newList) => {
+                res.send(newList)
+            })
+        }
     })
 })
 

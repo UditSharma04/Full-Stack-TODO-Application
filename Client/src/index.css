@@ -1,3 +1,176 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base Background */
+.page-bg {
+  @apply bg-[#F7F9FC];
+}
+
+/* Container Layout */
+.container-layout {
+  @apply max-w-5xl mx-auto px-4 py-4 sm:py-8;
+}
+
+/* Modern Card Styles */
+.card {
+  @apply bg-white rounded-xl sm:rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] 
+  border border-[#E8EDF5] p-4 sm:p-6 transition-all duration-200;
+}
+
+/* Task Card */
+.task-card {
+  @apply bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 
+  border border-[#E8EDF5]
+  hover:shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] 
+  transition-all duration-300;
+}
+
+/* Header Section */
+.header-section {
+  @apply bg-gradient-to-b from-[#F0F4FF] to-[#F7F9FC]
+  py-8 sm:py-12 mb-6 sm:mb-10 w-full;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply px-4 py-2.5 rounded-xl bg-[#2563EB] text-white 
+  hover:bg-[#1D4ED8] text-sm font-medium 
+  transition-all duration-200
+  hover:shadow-[0_5px_15px_-3px_rgba(37,99,235,0.3)];
+}
+
+.btn-secondary {
+  @apply px-4 py-2.5 rounded-xl bg-[#F1F5F9] text-[#64748B]
+  hover:bg-[#E2E8F0] text-sm font-medium transition-all duration-200;
+}
+
+.btn-danger {
+  @apply px-4 py-2.5 rounded-xl bg-[#FEE2E2] text-[#EF4444]
+  hover:bg-[#FEE2E2]/80 text-sm font-medium transition-all duration-200;
+}
+
+.btn-success {
+  @apply px-4 py-2.5 rounded-xl bg-[#DCFCE7] text-[#22C55E]
+  hover:bg-[#DCFCE7]/80 text-sm font-medium transition-all duration-200;
+}
+
+/* Input Styles */
+.input-primary {
+  @apply w-full px-5 py-3.5 bg-[#F8FAFC] border-2 border-[#E2E8F0]
+  rounded-xl focus:ring-2 focus:ring-blue-100 focus:border-blue-400
+  text-[#334155] placeholder-[#94A3B8] text-sm
+  hover:border-blue-200 transition-all duration-200;
+}
+
+/* Textarea Styles */
+.textarea-primary {
+  @apply w-full px-5 py-3.5 bg-[#F8FAFC] border-2 border-[#E2E8F0]
+  rounded-xl resize-none focus:ring-2 focus:ring-blue-100 
+  focus:border-blue-400 text-[#334155] placeholder-[#94A3B8]
+  hover:border-blue-200 transition-all duration-200;
+}
+
+/* Select Styles */
+.select-primary {
+  @apply w-full px-5 py-3.5 bg-[#F8FAFC] border-2 border-[#E2E8F0]
+  rounded-xl focus:ring-2 focus:ring-blue-100 focus:border-blue-400
+  text-[#334155] hover:border-blue-200 transition-all duration-200;
+}
+
+/* Status Badge */
+.status-active {
+  @apply text-[#2563EB] bg-[#EFF6FF] px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-completed {
+  @apply text-[#22C55E] bg-[#F0FDF4] px-3 py-1 rounded-full text-xs font-medium;
+}
+
+/* Priority Badge */
+.badge-priority {
+  @apply text-xs px-3 py-1 rounded-full font-medium;
+}
+
+.badge-priority-high {
+  @apply bg-[#FEE2E2] text-[#EF4444];
+}
+
+.badge-priority-medium {
+  @apply bg-[#FEF3C7] text-[#F59E0B];
+}
+
+.badge-priority-low {
+  @apply bg-[#DCFCE7] text-[#22C55E];
+}
+
+/* Category Badge */
+.badge-category {
+  @apply text-xs px-3 py-1 rounded-full font-medium 
+  bg-[#F1F5F9] text-[#64748B];
+}
+
+/* Tab Styles */
+.tab-container {
+  @apply flex gap-2 bg-[#F1F5F9] p-1 rounded-xl;
+}
+
+.tab-button {
+  @apply px-5 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium;
+}
+
+.tab-active {
+  @apply bg-white text-[#2563EB] shadow-sm;
+}
+
+.tab-inactive {
+  @apply text-[#64748B] hover:bg-white/50;
+}
+
+/* Animation Classes */
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%) translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+/* Mobile Task Card Layout */
+.task-card-mobile {
+  @apply flex flex-col gap-3;
+}
+
+/* Mobile Action Buttons */
+.action-buttons-mobile {
+  @apply flex justify-between items-center mt-3 pt-3 border-t border-[#E8EDF5];
+}
+
+/* Mobile Stats Grid */
+.stats-grid-mobile {
+  @apply grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8;
+}
+
+/* Mobile Input Groups */
+.input-group-mobile {
+  @apply grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4;
+}
+
+/* Mobile Filter Group */
+.filter-group-mobile {
+  @apply flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6;
+}
+
+/* Mobile Bulk Actions */
+.bulk-actions-mobile {
+  @apply fixed bottom-0 left-0 right-0 sm:left-1/2 sm:right-auto sm:transform sm:-translate-x-1/2
+  bg-white border-t sm:border sm:rounded-xl border-[#E8EDF5] p-4
+  sm:bottom-6 sm:w-auto animate-slideUp z-50;
+}
